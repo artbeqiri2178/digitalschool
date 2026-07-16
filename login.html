@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in or create an account for the AI Learning Hub">
+    <title>Sign In — AI Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <!-- Brand panel -->
+        <aside class="auth-brand">
+            <div class="auth-brand-inner">
+                <a class="auth-logo" href="index.html">
+                    <span class="auth-logo-mark">AI</span>
+                    <span class="auth-logo-text">Learning Hub</span>
+                </a>
+                <h1 class="auth-brand-title">Learn and create with AI.</h1>
+                <p class="auth-brand-sub">Join thousands of students aged 12–18 exploring how artificial intelligence works — from YouTube recommendations to face unlock.</p>
+                <ul class="auth-brand-list">
+                    <li><span aria-hidden="true">🚀</span> Track your progress section by section</li>
+                    <li><span aria-hidden="true">🏅</span> Earn achievements as you learn</li>
+                    <li><span aria-hidden="true">🧠</span> Simple explanations made for you</li>
+                </ul>
+            </div>
+            <footer class="auth-brand-footer">Learn and create with AI, DigitalSchool 2026</footer>
+        </aside>
+
+        <!-- Form panel -->
+        <section class="auth-form-panel" aria-labelledby="auth-heading">
+            <div class="auth-form-wrap">
+                <!-- Credentials notice (remove after setting real keys) -->
+                <div id="config-notice" class="auth-notice" role="status" hidden>
+                    ⚠️ Set your Supabase URL and anon key in <code>auth-page.js</code> to enable real sign in.
+                </div>
+
+                <h2 id="auth-heading" class="auth-form-title">Welcome back</h2>
+                <p class="auth-form-sub">Log in or create a free account to continue.</p>
+
+                <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+                    <button type="button" role="tab" id="tab-login" aria-selected="true" aria-controls="panel-login" data-tab="login" class="auth-tab is-active">Log in</button>
+                    <button type="button" role="tab" id="tab-register" aria-selected="false" aria-controls="panel-register" data-tab="register" class="auth-tab">Register</button>
+                </div>
+
+                <!-- LOGIN -->
+                <form id="panel-login" class="auth-form" role="tabpanel" aria-labelledby="tab-login" novalidate>
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required autocomplete="email" placeholder="you@example.com">
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="login-password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+                            <button type="button" class="password-toggle" aria-label="Show password" data-toggle-password>
+                                <span class="eye-icon" aria-hidden="true">👁</span>
+                            </button>
+                        </div>
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" name="remember" id="remember-me">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span class="checkbox-label">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link" data-forgot>Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block auth-submit">
+                        <span class="btn-text">Log in</span>
+                        <span class="btn-loader" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="auth-divider"><span>or continue with</span></p>
+                    <div class="oauth-buttons">
+                        <button type="button" class="btn btn-secondary oauth-btn" data-provider="google" aria-label="Continue with Google">
+                            <svg class="google-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary oauth-btn" data-provider="github" aria-label="Continue with GitHub">
+                            <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            <span>GitHub</span>
+                        </button>
+                    </div>
+
+                    <!-- Forgot password sub-panel -->
+                    <div id="forgot-panel" class="forgot-panel" hidden>
+                        <p class="auth-subtitle">Enter your email and we'll send a reset link.</p>
+                        <div class="form-group">
+                            <label for="forgot-email">Email</label>
+                            <input type="email" id="forgot-email" name="email" autocomplete="email" placeholder="you@example.com">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" data-send-reset>Send reset link</button>
+                        <button type="button" class="btn btn-secondary btn-block mt-3" data-back-to-login>Back to login</button>
+                    </div>
+                </form>
+
+                <!-- REGISTER -->
+                <form id="panel-register" class="auth-form" role="tabpanel" aria-labelledby="tab-register" hidden novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-username">Username</label>
+                            <input type="text" id="register-username" name="username" required autocomplete="username" minlength="3" maxlength="20" pattern="[a-zA-Z0-9_]+" placeholder="ai_explorer">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-fullname">Full name</label>
+                            <input type="text" id="register-fullname" name="fullName" required autocomplete="name" placeholder="Alex Doe">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="register-age">Age</label>
+                            <input type="number" id="register-age" name="age" required min="12" max="18" placeholder="15">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-grade">Grade</label>
+                            <select id="register-grade" name="gradeLevel" required>
+                                <option value="">Select</option>
+                                <option value="6">6th</option>
+                                <option value="7">7th</option>
+                                <option value="8">8th</option>
+                                <option value="9">9th</option>
+                                <option value="10">10th</option>
+                                <option value="11">11th</option>
+                                <option value="12">12th</option>
+                            </select>
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required autocomplete="email" placeholder="you@example.com">
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="register-password" name="password" required autocomplete="new-password" minlength="8" placeholder="At least 8 characters">
+                            <button type="button" class="password-toggle" aria-label="Show password" data-toggle-password>
+                                <span class="eye-icon" aria-hidden="true">👁</span>
+                            </button>
+                        </div>
+                        <div class="password-strength" hidden>
+                            <div class="strength-bar"><span class="strength-fill"></span></div>
+                            <span class="strength-text"></span>
+                        </div>
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="register-confirm" name="confirmPassword" required autocomplete="new-password" placeholder="Confirm your password">
+                            <button type="button" class="password-toggle" aria-label="Show password" data-toggle-password>
+                                <span class="eye-icon" aria-hidden="true">👁</span>
+                            </button>
+                        </div>
+                        <span class="form-error" aria-live="polite"></span>
+                    </div>
+                    <label class="checkbox-wrapper terms-group">
+                        <input type="checkbox" name="terms" id="agree-terms" required>
+                        <span class="checkmark" aria-hidden="true"></span>
+                        <span class="checkbox-label">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
+                    </label>
+                    <span class="form-error terms-error" aria-live="polite"></span>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block auth-submit">
+                        <span class="btn-text">Create account</span>
+                        <span class="btn-loader" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive" hidden></div>
+
+    <!-- Supabase UMD build is loaded dynamically inside auth-page.js (non-blocking) -->
+    <script src="auth-page.js"></script>
+</body>
+</html>
