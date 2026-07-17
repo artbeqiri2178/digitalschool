@@ -59,6 +59,9 @@
             email,
             password,
             options: {
+                /* Redirect the confirmation link to THIS site (your Vercel URL),
+                   not Supabase's default localhost. */
+                emailRedirectTo: window.location.origin + '/login.html',
                 data: {
                     username: metadata.username,
                     full_name: metadata.fullName,
