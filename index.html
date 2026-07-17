@@ -6,6 +6,10 @@
     <meta name="description" content="Learn about Artificial Intelligence - A guide for students aged 12-18">
     <title>AI Learning Hub - AI for Students</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Auth gate: hide the main page until we know the visitor is signed in.
+         Falls back to login.html on deploy. Adds ?preview=1 to bypass. -->
+    <script>document.documentElement.style.visibility = 'hidden';</script>
+    <script src="auth-gate.js"></script>
 </head>
 <body>
     <main id="main-content">
