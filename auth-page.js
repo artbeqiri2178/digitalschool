@@ -243,6 +243,22 @@
         }
     });
 
+    /* Resend confirmation email */
+    const resendLink = $('#resend-confirm-link');
+    if (resendLink) {
+        resendLink.addEventListener('click', async function (e) {
+            e.preventDefault();
+            const email = panelLogin.email.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showToast('Enter your email above first', 'error');
+                return;
+            }
+            const { error } = await supabase.auth.resend({ type: 'signup', email: email });
+            if (error) showToast(error.message, 'error');
+            else showToast('Confirmation email sent!', 'success');
+        });
+    }
+
     panelRegister.addEventListener('submit', async function (e) {
         e.preventDefault();
         clearErrors(panelRegister);
